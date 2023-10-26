@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/headTitle"
+            android:textSize="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textColor="?attr/colorControlActivated"
+            android:textStyle="italic|bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/imageViewMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/headTitle"/>
+
+        <Button
+            android:id="@+id/joinUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JOIN US"
+            android:backgroundTint="@drawable/button_background_color"
+            android:textColor="@drawable/button_text_color"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:layout_alignBottom="@+id/imageViewMain"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"/>
+    </RelativeLayout>
+
+</LinearLayout>
