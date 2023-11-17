@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewCrops">
+
+    <ImageButton
+        android:id="@+id/backB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="8dp"
+        android:src="@drawable/ic_back"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checkout"
+        android:textSize="50sp"
+        android:capitalize="words"
+        android:textColor="@color/green_500"
+        android:fontFamily="@font/indigo_daisy"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toEndOf="@+id/backB"/>
+
+    <!--recycler view for displaying our courses-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRVMeals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backB"
+        android:layout_above="@+id/checkOutBTN"/>
+
+
+
+    <Button
+        android:id="@+id/checkOutBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@drawable/btn_background_color"
+        android:textColor="@drawable/btn_text_color"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
+        android:capitalize="words"
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_alignParentBottom="true"
+        android:text="Checkout"/>
+
+</RelativeLayout>
