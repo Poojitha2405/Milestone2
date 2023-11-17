@@ -21,10 +21,15 @@
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="e_mail">Email</string>
+
+    <string name="contactus_message">Have an Ask? \nWe\'re here. Be sure we will get back to you soonest.</string>
+
     <string name="tag">Join us ... \nHere we do share anything agricultural</string>
     <string name="swipe_right_for_login">Swipe Right for Login</string>
     <string name="register">Register</string>
     <string name="re_type_password">Re-type Password</string>
     <string name="your_name">Full Name</string>
     <string name="your_phone">Phone Number</string>
+
+    <string name="user_Name">\@Jaymo</string>
 </resources>

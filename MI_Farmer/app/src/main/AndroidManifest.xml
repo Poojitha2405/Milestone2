@@ -13,6 +13,33 @@
         android:theme="@style/Theme.MI_Farmer"
         tools:targetApi="31">
         <activity
+            android:name="com.example.MI_Farmer.AgrovetServices"
+            android:exported="false" />
+        <activity
+            android:name="com.example.MI_Farmer.ThankYouActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.MI_Farmer.CheckoutActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.MI_Farmer.BuyNutsActivities"
+            android:exported="false" />
+        <activity
+            android:name="com.example.MI_Farmer.BuyFruitsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.MI_Farmer.BuyCerealsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.MI_Farmer.BuyVegetablesActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.MI_Farmer.UploadInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.MI_Farmer.ContactUsActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.MI_Farmer.UserProfileActivity"
             android:exported="false" />
         <activity
@@ -22,25 +49,13 @@
             android:name="com.example.MI_Farmer.LandingActivity"
             android:exported="false" />
         <activity
+            android:name="com.example.MI_Farmer.ViewCrops"
+            android:exported="false" />
+        <activity
             android:name="com.example.MI_Farmer.LoginActivity"
             android:exported="false" />
         <activity
             android:name="com.example.MI_Farmer.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".LandingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
