@@ -1,9 +1,6 @@
 package com.example.MI_Farmer;
 
 public class CropModal {
-
-    // variables for our coursename,
-    // description, tracks and duration, id.
     private String cropName;
 
     private String amount;

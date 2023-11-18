@@ -7,9 +7,12 @@ import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.mi_farmer.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class UserProfileActivity extends AppCompatActivity {
 
@@ -23,11 +26,27 @@ public class UserProfileActivity extends AppCompatActivity {
 
         ImageButton backButton = (ImageButton)findViewById(R.id.backB);
 
+        TextView currUserTV = findViewById(R.id.user_name);
+
+        Intent intent = getIntent();
+
+
+        String currUser =  intent.getStringExtra("currUser");
+
+        if (intent != null){
+            currUserTV.setText(currUser.toUpperCase());
+        }
+
+//        TextInputEditText fullNameET = findViewById(R.id.full_name_profile);
+//
+//        fullNameET.setText("@"+currUser);
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), LandingActivity.class);
+                goToLoginActivity.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToLoginActivity);
 
             }

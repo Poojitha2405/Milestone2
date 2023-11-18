@@ -7,416 +7,570 @@
     android:layout_height="match_parent"
     tools:context="com.example.MI_Farmer.BuyVegetablesActivity">
 
-    <View
-        android:id="@+id/view"
+    <RelativeLayout
+        android:id="@+id/buy_fruits_container"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:background="@drawable/custom_rectangle"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/backA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="?attr/selectableItemBackground"
-        android:padding="8dp"
-        android:src="@drawable/ic_back"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"/>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center_horizontal"
-        android:letterSpacing="0.025"
-        android:text="User: James"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_toEndOf="@+id/backA"/>
-
-    <ImageButton
-        android:id="@+id/logOutA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="?attr/selectableItemBackground"
-        android:padding="8dp"
-        android:src="@drawable/ic_logout"
-        app:layout_constraintCircleRadius="24dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"/>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:elevation="12dp"
-        app:cardCornerRadius="8dp"
-        android:layout_below="@+id/logOutA">
-
-        <RelativeLayout
+        <View
+            android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="30dp"
-                android:text="Buy Vegetables"
-                android:textAllCaps="true"
-                android:textColor="@color/green_500"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_alignParentLeft="true"/>
-
-            <TextView
-                android:id="@+id/cartAmount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textSize="18sp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="-10dp"
-                android:layout_centerVertical="true"/>
-
-            <ImageButton
-                android:id="@+id/cart"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="?attr/selectableItemBackground"
-                android:src="@drawable/cart"
-                android:layout_marginRight="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@+id/cartAmount"/>
-
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:layout_below="@+id/cardView">
+            android:layout_height="128dp"
+            android:background="@drawable/custom_rectangle"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"/>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cabbagesCard"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_margin="8dp"
+            android:id="@+id/adjustAmountLayout"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="250dp"
             android:layout_marginEnd="16dp"
-            android:clickable="true"
             android:elevation="12dp"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:visibility="gone">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/cabbagesImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:src="@drawable/cabbages"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true"/>
-
-                <TextView
-                    android:id="@+id/cabbages_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:text="Cabbages"
-                    android:textAllCaps="true"
-                    android:textColor="@color/green_500"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/cabbagesImage"/>
-
-
-                <TextView
-                    android:id="@+id/priceTagCabbages"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="Price per Kg: $ "
-                    android:textColor="@color/green_500"
-                    android:textSize="14sp"
-                    android:textStyle="italic|bold"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cropImageLayout"
+                    android:layout_width="170dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:elevation="12dp"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="8dp"
                     android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/cabbages_name" />
+                    android:layout_alignParentTop="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/cropImage"
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/cabbages"
+                            android:layout_centerHorizontal="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true"/>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/priceAmountCabbages"
+                    android:id="@+id/cropNamePopup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical"
-                    android:paddingBottom="5dp"
-                    android:text=" 1.49"
+                    android:text="Green Grams"
+                    android:capitalize="words"
                     android:textColor="@color/green_500"
-                    android:textSize="14sp"
-                    android:textStyle="italic|bold"
-                    android:layout_below="@+id/cabbages_name"
-                    android:layout_alignParentRight="true"
-                    android:layout_toEndOf="@+id/priceTagCabbages"/>
+                    android:textSize="21sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/cropImageLayout"/>
+
+                <ImageButton
+                    android:id="@+id/cancelPopup"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    app:srcCompat="@drawable/cancel"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    />
+
+                <TextView
+                    android:id="@+id/pricePopup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$3.99/KG "
+                    android:textSize="19sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="70dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/cropImageLayout"/>
+
+                <EditText
+                    android:id="@+id/et_amount"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:text="1"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:inputType="number"
+                    android:fontFamily="@font/roboto_regular"
+                    android:layout_toEndOf="@id/pricePopup"
+                    android:background="@drawable/et_custom"
+                    android:textSize="19sp" />
+
+
+                <TextView
+                    android:id="@+id/subtotalPopup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$300.99  Subtotal"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="110dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/cropImageLayout"/>
+
+                <Button
+                    android:id="@+id/addCart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="add to cart"
+                    android:backgroundTint="@drawable/button_background_color"
+                    android:textColor="@drawable/button_text_color"
+                    android:textSize="19sp"
+                    android:textStyle="italic"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@id/cropImageLayout"
+                    android:layout_marginBottom="5dp"/>
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/carrotsCard"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_margin="8dp"
+        <ImageButton
+            android:id="@+id/backA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:padding="8dp"
+            android:src="@drawable/ic_back"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.025"
+            android:text="User: James"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/backA"/>
+
+        <ImageButton
+            android:id="@+id/logOutA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:clickable="true"
+            android:background="?attr/selectableItemBackground"
+            android:padding="8dp"
+            android:src="@drawable/ic_logout"
+            app:layout_constraintCircleRadius="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
             android:elevation="12dp"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            android:layout_below="@+id/logOutA">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/carrotsImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:src="@drawable/carrots"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true"/>
-
                 <TextView
-                    android:id="@+id/carrots_name"
-                    android:layout_width="match_parent"
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:text="Carrots"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="Buy Vegetables"
                     android:textAllCaps="true"
                     android:textColor="@color/green_500"
-                    android:textSize="14sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/carrotsImage"/>
-
+                    android:layout_alignParentLeft="true"/>
 
                 <TextView
-                    android:id="@+id/priceTag"
+                    android:id="@+id/titleItems"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="Price per Kg: $ "
-                    android:textColor="@color/green_500"
-                    android:textSize="14sp"
-                    android:textStyle="italic|bold"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/carrots_name" />
+                    android:padding="5dp"
+                    android:text="Total"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:capitalize="words"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/indigo_daisy"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"/>
 
                 <TextView
-                    android:id="@+id/priceAmount"
+                    android:id="@+id/cartAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical"
-                    android:paddingBottom="5dp"
-                    android:text=" 13.99"
-                    android:textColor="@color/green_500"
-                    android:textSize="14sp"
-                    android:textStyle="italic|bold"
-                    android:layout_below="@+id/carrots_name"
+                    android:text="0"
+                    android:textSize="18sp"
                     android:layout_alignParentRight="true"
-                    android:layout_toEndOf="@+id/priceTag"/>
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="-10dp"
+                    android:layout_centerVertical="true"/>
+
+                <ImageButton
+                    android:id="@+id/cartFruits"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:src="@drawable/cart"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/cartAmount"/>
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_below="@+id/cardView">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:layout_below="@+id/linearLayout">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/applesCard"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="8dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:elevation="12dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/tomatoesCard"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_margin="8dp"
-            android:layout_marginEnd="16dp"
-            android:clickable="true"
-            android:elevation="12dp"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="8dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/tomatoesImage"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:src="@drawable/tomatoes"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true"/>
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/tomatoes_name"
+                    <ImageView
+                        android:id="@+id/applesImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:src="@drawable/cabbages"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"/>
+
+                    <TextView
+                        android:id="@+id/apples_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:text="Cabbages"
+                        android:textAllCaps="true"
+                        android:textColor="@color/green_500"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/applesImage"/>
+
+
+                    <TextView
+                        android:id="@+id/priceTagApples"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Price per Kg: $ "
+                        android:textColor="@color/green_500"
+                        android:textSize="14sp"
+                        android:textStyle="italic|bold"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/apples_name" />
+
+                    <TextView
+                        android:id="@+id/priceAmountApples"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:paddingBottom="5dp"
+                        android:text=" 11.69"
+                        android:textColor="@color/green_500"
+                        android:textSize="14sp"
+                        android:textStyle="italic|bold"
+                        android:layout_below="@+id/apples_name"
+                        android:layout_alignParentRight="true"
+                        android:layout_toEndOf="@+id/priceTagApples"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/grapesCard"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="8dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:elevation="12dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:text="Tomatoes"
-                    android:textAllCaps="true"
-                    android:textColor="@color/green_500"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/tomatoesImage"/>
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/grapesImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:src="@drawable/carrots"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"/>
+
+                    <TextView
+                        android:id="@+id/grapes_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:text="Carrots"
+                        android:textAllCaps="true"
+                        android:textColor="@color/green_500"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/grapesImage"/>
 
 
-                <TextView
-                    android:id="@+id/priceTagTomatoes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="Price per Kg: $ "
-                    android:textColor="@color/green_500"
-                    android:textSize="14sp"
-                    android:textStyle="italic|bold"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/tomatoes_name" />
+                    <TextView
+                        android:id="@+id/priceTagGrapes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Price per Kg: $ "
+                        android:textColor="@color/green_500"
+                        android:textSize="14sp"
+                        android:textStyle="italic|bold"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/grapes_name" />
 
-                <TextView
-                    android:id="@+id/priceAmountTomatoes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical"
-                    android:paddingBottom="5dp"
-                    android:text=" 8.99"
-                    android:textColor="@color/green_500"
-                    android:textSize="14sp"
-                    android:textStyle="italic|bold"
-                    android:layout_below="@+id/tomatoes_name"
-                    android:layout_alignParentRight="true"
-                    android:layout_toEndOf="@+id/priceTagTomatoes"/>
+                    <TextView
+                        android:id="@+id/priceAmountGrapes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:paddingBottom="5dp"
+                        android:text=" 4.99"
+                        android:textColor="@color/green_500"
+                        android:textSize="14sp"
+                        android:textStyle="italic|bold"
+                        android:layout_below="@+id/grapes_name"
+                        android:layout_alignParentRight="true"
+                        android:layout_toEndOf="@+id/priceTagGrapes"/>
 
-            </RelativeLayout>
+                </RelativeLayout>
 
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/kaleCard"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_margin="8dp"
-            android:layout_marginEnd="16dp"
-            android:clickable="true"
-            android:elevation="12dp"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="8dp">
+        </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_below="@+id/linearLayout">
 
-                <ImageView
-                    android:id="@+id/kaleImage"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/mangoesCard"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="8dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:elevation="12dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:src="@drawable/kale"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true"/>
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/kale_name"
+                    <ImageView
+                        android:id="@+id/mangoesImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:src="@drawable/tomatoes"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"/>
+
+                    <TextView
+                        android:id="@+id/mangoes_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:text="Tomatoes"
+                        android:textAllCaps="true"
+                        android:textColor="@color/green_500"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/mangoesImage"/>
+
+
+                    <TextView
+                        android:id="@+id/priceTagMangoes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Price per Kg: $ "
+                        android:textColor="@color/green_500"
+                        android:textSize="14sp"
+                        android:textStyle="italic|bold"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/mangoes_name" />
+
+                    <TextView
+                        android:id="@+id/priceAmountMangoes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:paddingBottom="5dp"
+                        android:text=" 9.99"
+                        android:textColor="@color/green_500"
+                        android:textSize="14sp"
+                        android:textStyle="italic|bold"
+                        android:layout_below="@+id/mangoes_name"
+                        android:layout_alignParentRight="true"
+                        android:layout_toEndOf="@+id/priceTagMangoes"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/waterMelonCard"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="8dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:elevation="12dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:text="Kales"
-                    android:textAllCaps="true"
-                    android:textColor="@color/green_500"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/kaleImage"/>
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/waterMelonCardImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:src="@drawable/kale"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"/>
+
+                    <TextView
+                        android:id="@+id/water_melon_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:text="Kales"
+                        android:textAllCaps="true"
+                        android:textColor="@color/green_500"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/waterMelonCardImage"/>
 
 
-                <TextView
-                    android:id="@+id/priceTagKale"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="Price per Kg: $ "
-                    android:textColor="@color/green_500"
-                    android:textSize="14sp"
-                    android:textStyle="italic|bold"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/kale_name" />
+                    <TextView
+                        android:id="@+id/priceTagWaterMelonCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Price per Kg: $ "
+                        android:textColor="@color/green_500"
+                        android:textSize="14sp"
+                        android:textStyle="italic|bold"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/water_melon_name" />
 
-                <TextView
-                    android:id="@+id/priceAmountKale"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical"
-                    android:paddingBottom="5dp"
-                    android:text=" 11.99"
-                    android:textColor="@color/green_500"
-                    android:textSize="14sp"
-                    android:textStyle="italic|bold"
-                    android:layout_below="@+id/kale_name"
-                    android:layout_alignParentRight="true"
-                    android:layout_toEndOf="@+id/priceTagKale"/>
+                    <TextView
+                        android:id="@+id/priceAmountWaterMelon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:paddingBottom="5dp"
+                        android:text=" 12.99"
+                        android:textColor="@color/green_500"
+                        android:textSize="14sp"
+                        android:textStyle="italic|bold"
+                        android:layout_below="@+id/water_melon_name"
+                        android:layout_alignParentRight="true"
+                        android:layout_toEndOf="@+id/priceTagWaterMelonCard"/>
 
-            </RelativeLayout>
+                </RelativeLayout>
 
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </RelativeLayout>

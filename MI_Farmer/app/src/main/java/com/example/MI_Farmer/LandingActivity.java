@@ -28,6 +28,20 @@ public class LandingActivity extends AppCompatActivity {
         CardView sellCard = findViewById(R.id.sellCard);
         CardView agrovetsCard = findViewById(R.id.agrovetsCard);
 
+        TextView currUserTV = findViewById(R.id.textView);
+
+        Intent intent = getIntent();
+
+
+        String currUser =  intent.getStringExtra("currUser");
+
+        if (intent != null){
+            currUserTV.setText("Welcome back " + currUser);
+        }
+
+
+
+
         sellCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +77,7 @@ public class LandingActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent goToBuyerIntent = new Intent(v.getContext(), BuyerLanding.class);
+                goToBuyerIntent.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToBuyerIntent);
             }
         });
@@ -91,6 +106,7 @@ public class LandingActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), UserProfileActivity.class);
+                goToLoginActivity.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToLoginActivity);
 
             }
