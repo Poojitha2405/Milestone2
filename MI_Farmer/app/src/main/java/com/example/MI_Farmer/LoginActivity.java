@@ -31,7 +31,6 @@ public class LoginActivity extends AppCompatActivity {
 
         public AuthenticationPagerAdapter(FragmentManager fm) {
             super(fm);
-
         }
 
         @Override
@@ -47,5 +46,4 @@ public class LoginActivity extends AppCompatActivity {
         void addFragmet(Fragment fragment) {
             fragmentList.add(fragment);
         }
-    }
-}
+    }}

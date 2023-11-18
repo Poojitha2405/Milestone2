@@ -388,10 +388,8 @@ public class BuyFruitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // opening a new activity via a intent.
-                String cropType = "fruits";
-                Intent goToLoginActivity = new Intent(v.getContext(), ViewCrops.class);
-                goToLoginActivity.putExtra("crop_type", cropType);
-                v.getContext().startActivity(goToLoginActivity);
+                Intent goToViewCropsActivity = new Intent(v.getContext(), ViewCrops.class);
+                v.getContext().startActivity(goToViewCropsActivity);
             }
         });
 

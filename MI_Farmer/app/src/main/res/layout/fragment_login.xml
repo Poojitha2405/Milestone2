@@ -25,10 +25,10 @@
         android:fontFamily="@font/roboto_regular"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="50dp"
-        android:layout_above="@id/emailET"/>
+        android:layout_above="@id/et_emaill"/>
 
     <EditText
-        android:id="@+id/emailET"
+        android:id="@+id/et_emaill"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/e_mail"
@@ -68,7 +68,6 @@
         android:fontFamily="@font/roboto_regular"
         android:textColor="@android:color/white"
         android:text="@string/login"/>
-
 
     <ImageView
         android:layout_width="30dp"

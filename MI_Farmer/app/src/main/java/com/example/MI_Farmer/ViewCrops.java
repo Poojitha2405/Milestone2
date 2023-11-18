@@ -36,54 +36,8 @@ public class ViewCrops extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                Intent intent = getIntent();
-                // receive the value by getStringExtra() method and
-                // key must be same which is send by first activity
-                String cropType;
-
-                Intent goToLoginActivity;
-                if (intent.getStringExtra("crop_type") != null){
-
-                    cropType = intent.getStringExtra("crop_type");
-                    if (cropType.equals("cereals")){
-
-                        goToLoginActivity = new Intent(v.getContext(), BuyCerealsActivity.class);
-
-                        v.getContext().startActivity(goToLoginActivity);
-                    }else if (cropType.equals("fruits")){
-
-                        goToLoginActivity = new Intent(v.getContext(), BuyFruitsActivity.class);
-
-                        v.getContext().startActivity(goToLoginActivity);
-                    }else if (cropType.equals("nuts")){
-
-                        goToLoginActivity = new Intent(v.getContext(), BuyNutsActivities.class);
-
-                        v.getContext().startActivity(goToLoginActivity);
-                    }else if (cropType.equals("vegetables")){
-
-                        goToLoginActivity = new Intent(v.getContext(), BuyVegetablesActivity.class);
-
-                        v.getContext().startActivity(goToLoginActivity);
-                    }else{
-
-                        goToLoginActivity = new Intent(v.getContext(), BuyCerealsActivity.class);
-
-                        v.getContext().startActivity(goToLoginActivity);
-
-
-                    }
-
-                }else{
-
-                    goToLoginActivity = new Intent(v.getContext(), BuyFruitsActivity.class);
-
-                    v.getContext().startActivity(goToLoginActivity);
-
-
-                }
-
+                Intent goToLoginActivity = new Intent(v.getContext(), BuyFruitsActivity.class);
+                v.getContext().startActivity(goToLoginActivity);
 
             }
         });

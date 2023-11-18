@@ -20,8 +20,6 @@ public class DBHandler extends SQLiteOpenHelper {
     // below variable is for our table name.
     private static final String TABLE_NAME = "mycart";
 
-    private static final String USER_TABLE_NAME = "users";
-
     // below variable is for our id column.
     private static final String ID_COL = "id";
 
@@ -37,18 +35,6 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String SUBTOTAL_COL = "subtotal";
 
     private static final String IMAGE_RESOURCE_COL = "image_resource";
-
-    private static final String USER_NAME_COL = "name";
-
-    private static final String EMAIL_COL = "email";
-
-    // below variable id for our meal column.
-    private static final String PHONE_COL = "phone";
-
-    // below variable for our rating column.
-    private static final String PASSWORD_COL = "password";
-
-    private static final String DATE_COL = "date";
 
 
     // creating a constructor for our database handler.
@@ -73,17 +59,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // at last we are calling a exec sql
         // method to execute above sql query
-        db.execSQL(query);
-
-
-        query = "CREATE TABLE " + USER_TABLE_NAME + " ("
-                + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + USER_NAME_COL + " TEXT,"
-                + EMAIL_COL + " TEXT,"
-                + PHONE_COL + " TEXT,"
-                + PASSWORD_COL + " TEXT,"
-                + DATE_COL + " TEXT)";
-
         db.execSQL(query);
     }
 
@@ -111,35 +86,6 @@ public class DBHandler extends SQLiteOpenHelper {
         // after adding all values we are passing
         // content values to our table.
         db.insert(TABLE_NAME, null, values);
-
-        // at last we are closing our
-        // database after adding database.
-        db.close();
-    }
-
-    public void addNewUser(String userName, String email, String phone, String password, String date ) {
-
-        // on below line we are creating a variable for
-        // our sqlite database and calling writable method
-        // as we are writing data in our database.
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        // on below line we are creating a
-        // variable for content values.
-        ContentValues values = new ContentValues();
-
-        // on below line we are passing all values
-        // along with its key and value pair.
-        values.put(USER_NAME_COL, userName);
-        values.put(EMAIL_COL, email);
-        values.put(PHONE_COL, phone);
-        values.put(PASSWORD_COL, password);
-        values.put(DATE_COL, date);
-
-
-        // after adding all values we are passing
-        // content values to our table.
-        db.insert(USER_TABLE_NAME, null, values);
 
         // at last we are closing our
         // database after adding database.
@@ -176,40 +122,6 @@ public class DBHandler extends SQLiteOpenHelper {
         cursorMeals.close();
         return cropModalArrayList;
     }
-
-
-    public ArrayList<UserModal> readUsers() {
-        // on below line we are creating a
-        // database for reading our database.
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        // on below line we are creating a cursor with query to read data from database.
-        Cursor cursorMeals = db.rawQuery("SELECT * FROM " + USER_TABLE_NAME, null);
-
-        // on below line we are creating a new array list.
-        ArrayList<UserModal> userModalArrayList = new ArrayList<>();
-
-        // moving our cursor to first position.
-        if (cursorMeals.moveToFirst()) {
-            do {
-                // on below line we are adding the data from cursor to our array list.
-                userModalArrayList.add(new UserModal(cursorMeals.getString(0),
-                        cursorMeals.getString(1),
-                        cursorMeals.getString(2),
-                        cursorMeals.getString(3),
-                        cursorMeals.getString(4),
-                        cursorMeals.getString(5)));
-            } while (cursorMeals.moveToNext());
-            // moving our cursor to next.
-        }
-
-        // at last closing our cursor
-        // and returning our array list.
-        cursorMeals.close();
-        return userModalArrayList;
-    }
-
-
 
     public int deleteCrop(String cropName) {
 

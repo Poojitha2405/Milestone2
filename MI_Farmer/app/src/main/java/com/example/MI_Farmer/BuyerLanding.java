@@ -29,17 +29,6 @@ public class BuyerLanding extends AppCompatActivity {
         CardView vegetablesCard = findViewById(R.id.vegetablesCard);
         CardView fruitsCard = findViewById(R.id.fruitsCard);
 
-        TextView currUserTV = findViewById(R.id.textView);
-
-        Intent intent = getIntent();
-
-        String currUser =  intent.getStringExtra("currUser");
-
-        if (intent != null){
-
-            currUserTV.setText("Welcome back " + currUser);
-        }
-
         cerealsCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +106,6 @@ public class BuyerLanding extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), UserProfileActivity.class);
-                goToLoginActivity.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToLoginActivity);
 
             }
