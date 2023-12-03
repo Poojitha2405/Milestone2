@@ -1,4 +1,5 @@
 package com.example.MI_Farmer;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -20,7 +21,7 @@ import com.example.mi_farmer.R;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class BuyFruitsActivity extends AppCompatActivity {
+public class BuyVegetablesActivity extends AppCompatActivity {
 
     private ArrayList<CropModal> cropModalArrayList;
     private DBHandler dbHandler;
@@ -37,10 +38,24 @@ public class BuyFruitsActivity extends AppCompatActivity {
 
     DecimalFormat df = new DecimalFormat("#.##");
     public int amountSet, numberOfItems, resource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buy_fruits);
+        setContentView(R.layout.activity_buy_vegetables);
+
+        Intent intent = getIntent();
+
+        String currUser = "";
+
+        if (intent != null){
+
+            currUser =  intent.getStringExtra("currUser");
+        }
+
+        TextView textView = findViewById(R.id.textView);
+
+        textView.setText("User: "+currUser);
 
         TextView titleNumItems = findViewById(R.id.titleItems);
 
@@ -84,7 +99,7 @@ public class BuyFruitsActivity extends AppCompatActivity {
 
 
         cropModalArrayList = new ArrayList<>();
-        dbHandler = new DBHandler(BuyFruitsActivity.this);
+        dbHandler = new DBHandler(BuyVegetablesActivity.this);
 
         // getting our meals array
         // list from db handler class.
@@ -98,7 +113,7 @@ public class BuyFruitsActivity extends AppCompatActivity {
 
         }
 
-        String totalString = df.format(total);;
+        String totalString = df.format(total);
         titleNumItems.setText("Total: $"+ totalString);
 
         cartAmount.setText(listSize);
@@ -106,11 +121,13 @@ public class BuyFruitsActivity extends AppCompatActivity {
         Button addToCart = findViewById(R.id.addCart);
 
 
+        String finalCurrUser1 = currUser;
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), BuyerLanding.class);
+                goToLoginActivity.putExtra("currUser", finalCurrUser1);
                 v.getContext().startActivity(goToLoginActivity);
 
             }
@@ -134,7 +151,7 @@ public class BuyFruitsActivity extends AppCompatActivity {
 
 
                 cartPopup.setVisibility(View.VISIBLE);
-                resource = R.drawable.apples;
+                resource = R.drawable.cabbages;
                 subTotal = amountSet * cropPrice;
                 finalSubTot = String.valueOf(subTotal);
                 cropNamePopup.setText(applesName.getText().toString());
@@ -142,7 +159,7 @@ public class BuyFruitsActivity extends AppCompatActivity {
                 subtotalPopup.setText("$"+finalSubTot+ " Subtotal");
                 cropImage.setImageResource(resource);
 
-                imgResource = String.valueOf(R.drawable.apples);
+                imgResource = String.valueOf(resource);
                 amountItems.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -183,7 +200,7 @@ public class BuyFruitsActivity extends AppCompatActivity {
                 cropPrice = Double.parseDouble(grapesPriceAmount.getText().toString());
 
                 cartPopup.setVisibility(View.VISIBLE);
-                resource = R.drawable.grapes;
+                resource = R.drawable.carrots;
                 subTotal = amountSet * cropPrice;
                 finalSubTot = String.valueOf(subTotal);
                 cropNamePopup.setText(grapesName.getText().toString());
@@ -191,7 +208,7 @@ public class BuyFruitsActivity extends AppCompatActivity {
                 subtotalPopup.setText("$"+finalSubTot+ " Subtotal");
                 cropImage.setImageResource(resource);
 
-                imgResource = String.valueOf(R.drawable.grapes);
+                imgResource = String.valueOf(resource);
                 amountItems.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -228,7 +245,7 @@ public class BuyFruitsActivity extends AppCompatActivity {
                 cropPrice = Double.parseDouble(mangoesPriceAmount.getText().toString());
 
                 cartPopup.setVisibility(View.VISIBLE);
-                resource = R.drawable.mangoes;
+                resource = R.drawable.tomatoes;
                 subTotal = amountSet * cropPrice;
                 finalSubTot = String.valueOf(subTotal);
                 cropNamePopup.setText(mangoesName.getText().toString());
@@ -236,7 +253,7 @@ public class BuyFruitsActivity extends AppCompatActivity {
                 subtotalPopup.setText("$"+ finalSubTot + " Subtotal");
                 cropImage.setImageResource(resource);
 
-                imgResource = String.valueOf(R.drawable.mangoes);
+                imgResource = String.valueOf(resource);
                 amountItems.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -276,7 +293,7 @@ public class BuyFruitsActivity extends AppCompatActivity {
                 cropPrice = Double.parseDouble(waterMelonPriceAmount.getText().toString());
 
                 cartPopup.setVisibility(View.VISIBLE);
-                resource = R.drawable.water_melon;
+                resource = R.drawable.kale;
                 subTotal = amountSet * cropPrice;
                 finalSubTot = String.valueOf(subTotal);
                 cropNamePopup.setText(waterMelonName.getText().toString());
@@ -284,7 +301,7 @@ public class BuyFruitsActivity extends AppCompatActivity {
                 subtotalPopup.setText("$"+finalSubTot+ " Subtotal");
                 cropImage.setImageResource(resource);
 
-                imgResource = String.valueOf(R.drawable.water_melon);
+                imgResource = String.valueOf(resource);
                 amountItems.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -344,7 +361,7 @@ public class BuyFruitsActivity extends AppCompatActivity {
                         String totalString = df.format(total);
                         titleNumItems.setText("Total: $"+ totalString);
                         // after adding the data we are displaying a toast message.
-                        Toast.makeText(BuyFruitsActivity.this, "1 item has been added to the cart.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(BuyVegetablesActivity.this, "1 item has been added to the cart.", Toast.LENGTH_LONG).show();
 
                         amountItems.setText("1");
                         cartPopup.setVisibility(View.INVISIBLE);
@@ -353,11 +370,11 @@ public class BuyFruitsActivity extends AppCompatActivity {
 
                     }else {
 
-                        Toast.makeText(BuyFruitsActivity.this, "Amount cannot be 0.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BuyVegetablesActivity.this, "Amount cannot be 0.", Toast.LENGTH_SHORT).show();
                     }
                 }else{
 
-                    Toast.makeText(BuyFruitsActivity.this, "Amount cannot be empty.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BuyVegetablesActivity.this, "Amount cannot be empty.", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -381,20 +398,20 @@ public class BuyFruitsActivity extends AppCompatActivity {
 
         // creating a new dbhandler class
         // and passing our context to it.
-        dbHandler = new DBHandler(BuyFruitsActivity.this);
+        dbHandler = new DBHandler(BuyVegetablesActivity.this);
         // below line is to add on click listener for our add course button.
 
+        String finalCurrUser = currUser;
         cartBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // opening a new activity via a intent.
-                String cropType = "fruits";
+                String cropType = "vegetables";
                 Intent goToLoginActivity = new Intent(v.getContext(), ViewCrops.class);
                 goToLoginActivity.putExtra("crop_type", cropType);
+                goToLoginActivity.putExtra("currUser", finalCurrUser);
                 v.getContext().startActivity(goToLoginActivity);
             }
         });
-
-
     }
 }

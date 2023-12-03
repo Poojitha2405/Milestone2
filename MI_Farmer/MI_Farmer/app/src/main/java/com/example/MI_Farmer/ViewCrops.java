@@ -28,10 +28,25 @@ public class ViewCrops extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_crops);
 
+        Intent intent = getIntent();
+
+        String currUser = "";
+
+        if (intent != null){
+
+            currUser =  intent.getStringExtra("currUser");
+        }
+
         ImageButton backButton = (ImageButton)findViewById(R.id.backB);
 
         Button checkOutButton = findViewById(R.id.checkOutBTN);
 
+        String finalCurrUser1 = currUser;
+        String finalCurrUser2 = currUser;
+        String finalCurrUser3 = currUser;
+        String finalCurrUser4 = currUser;
+        String finalCurrUser5 = currUser;
+        String finalCurrUser6 = currUser;
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,36 +64,33 @@ public class ViewCrops extends AppCompatActivity {
                     if (cropType.equals("cereals")){
 
                         goToLoginActivity = new Intent(v.getContext(), BuyCerealsActivity.class);
-
+                        goToLoginActivity.putExtra("crop_type", "cereals");
+                        goToLoginActivity.putExtra("currUser", finalCurrUser6);
                         v.getContext().startActivity(goToLoginActivity);
                     }else if (cropType.equals("fruits")){
 
                         goToLoginActivity = new Intent(v.getContext(), BuyFruitsActivity.class);
-
+                        goToLoginActivity.putExtra("crop_type", "fruits");
+                        goToLoginActivity.putExtra("currUser", finalCurrUser5);
                         v.getContext().startActivity(goToLoginActivity);
                     }else if (cropType.equals("nuts")){
 
                         goToLoginActivity = new Intent(v.getContext(), BuyNutsActivities.class);
-
+                        goToLoginActivity.putExtra("crop_type", "fruits");
+                        goToLoginActivity.putExtra("currUser", finalCurrUser4);
                         v.getContext().startActivity(goToLoginActivity);
                     }else if (cropType.equals("vegetables")){
 
                         goToLoginActivity = new Intent(v.getContext(), BuyVegetablesActivity.class);
-
+                        goToLoginActivity.putExtra("crop_type", "fruits");
+                        goToLoginActivity.putExtra("currUser", finalCurrUser3);
                         v.getContext().startActivity(goToLoginActivity);
-                    }else{
-
-                        goToLoginActivity = new Intent(v.getContext(), BuyCerealsActivity.class);
-
-                        v.getContext().startActivity(goToLoginActivity);
-
-
                     }
 
                 }else{
 
                     goToLoginActivity = new Intent(v.getContext(), BuyFruitsActivity.class);
-
+                    goToLoginActivity.putExtra("currUser", finalCurrUser1);
                     v.getContext().startActivity(goToLoginActivity);
 
 
@@ -88,11 +100,13 @@ public class ViewCrops extends AppCompatActivity {
             }
         });
 
+        String finalCurrUser = currUser;
         checkOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), CheckoutActivity.class);
+                goToLoginActivity.putExtra("currUser", finalCurrUser);
                 v.getContext().startActivity(goToLoginActivity);
 
             }

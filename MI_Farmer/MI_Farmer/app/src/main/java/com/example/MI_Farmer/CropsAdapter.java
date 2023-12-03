@@ -48,7 +48,7 @@ public class CropsAdapter extends RecyclerView.Adapter<CropsAdapter.ViewHolder> 
         holder.cropNameCart.setText("Crop: "+ modal.getCropName());
         holder.priceCart.setText("Price: "+modal.getPrice());
         holder.subtotalCart.setText("Subtotal: "+modal.getSubtotal());
-
+        holder.cropImage.setImageResource(Integer.valueOf(modal.getImgResource()));
 
         holder.numberOfItemsCart.setText("Amount: "+modal.getAmount());
 

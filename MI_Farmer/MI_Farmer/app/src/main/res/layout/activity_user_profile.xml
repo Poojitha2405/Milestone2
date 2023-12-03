@@ -180,6 +180,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/full_name_profile_ET"
                 android:drawableLeft="@drawable/name_drawable"
                 android:drawablePadding="10dp"
                 android:layout_height="wrap_content"
@@ -196,6 +197,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_profile_ET"
                 android:drawableLeft="@drawable/email_drawable"
                 android:drawablePadding="10dp"
                 android:layout_height="wrap_content"
@@ -212,6 +214,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone_profile_ET"
                 android:drawableLeft="@drawable/phone_drawable"
                 android:drawablePadding="10dp"
                 android:layout_height="wrap_content"

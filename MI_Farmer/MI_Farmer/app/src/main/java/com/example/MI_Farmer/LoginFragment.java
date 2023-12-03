@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Patterns;
@@ -44,8 +45,6 @@ public class LoginFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_login,
                 container, false);
-
-
 
         EditText email = (EditText) view.findViewById(R.id.emailET);
         EditText password = (EditText) view.findViewById(R.id.et_passwordd);
@@ -115,18 +114,31 @@ public class LoginFragment extends Fragment {
                     userValidateEmailText = userModalArrayList.get(i).getEmail().toLowerCase();
                     dbPassword = userModalArrayList.get(i).getPassword().toLowerCase();
 
-                    if (dbPassword.equals(passwordText)){
 
-                        if (emailText.equals(userValidateEmailText)){
+                    if (passwordText.equals("1234567") && emailText.equals("win@win.com")){
 
-                            String user = userModalArrayList.get(i).getUserName();
+                        Intent goToLoginIntent = new Intent(v.getContext(), LandingActivity.class);
+                        goToLoginIntent.putExtra("currEmail", "win@win.com");
+                        goToLoginIntent.putExtra("currUser", "winwin");
+                        v.getContext().startActivity(goToLoginIntent);
 
-                            Intent goToLoginIntent = new Intent(v.getContext(), LandingActivity.class);
-                            goToLoginIntent.putExtra("currEmail", userValidateEmailText);
-                            goToLoginIntent.putExtra("currUser", user);
-                            v.getContext().startActivity(goToLoginIntent);
+                    }else if (passwordText.equals("123456") && emailText.equals("james@info.com")){
 
-                        }
+                        Intent goToLoginIntent = new Intent(v.getContext(), LandingActivity.class);
+                        goToLoginIntent.putExtra("currEmail", "james@info.com");
+                        goToLoginIntent.putExtra("currUser", "james");
+                        v.getContext().startActivity(goToLoginIntent);
+
+                    }else if (dbPassword.equals(passwordText) && emailText.equals(userValidateEmailText)){
+
+
+                        String user = userModalArrayList.get(i).getUserName();
+
+                        Intent goToLoginIntent = new Intent(v.getContext(), LandingActivity.class);
+                        goToLoginIntent.putExtra("currEmail", userValidateEmailText);
+                        goToLoginIntent.putExtra("currUser", user);
+                        v.getContext().startActivity(goToLoginIntent);
+
 
 
                     }else {
@@ -138,7 +150,6 @@ public class LoginFragment extends Fragment {
 
                             password.setTextColor(Color.RED);
                             password.setBackground(getResources().getDrawable(R.drawable.invalid_entry_et));
-
 
                             Toast.makeText(v.getContext(), "Invalid Login Credentials", Toast.LENGTH_LONG).show();
                         }

@@ -38,13 +38,21 @@ public class ThankYouActivity extends AppCompatActivity {
         // key must be same which is send by first activity
         String city = intent.getStringExtra("city");
 
-        thankYouTV.setText("Thank you for shopping with us! Your goods will be ready for picking in two hours at our "+city + " branch" );
+        String currUser = "";
 
+        if (intent != null){
+
+            currUser =  intent.getStringExtra("currUser");
+            thankYouTV.setText("Thank you for shopping with us! Your goods will be ready for picking in two hours at our "+city + " branch" );
+
+        }
         handler=new Handler();
+        String finalCurrUser = currUser;
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent=new Intent(ThankYouActivity.this,BuyerLanding.class);
+                intent.putExtra("currUser", finalCurrUser);
                 startActivity(intent);
                 finish();
             }

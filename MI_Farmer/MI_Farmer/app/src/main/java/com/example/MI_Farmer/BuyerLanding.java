@@ -44,6 +44,7 @@ public class BuyerLanding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goToLoginActivity = new Intent(v.getContext(), BuyCerealsActivity.class);
+                goToLoginActivity.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToLoginActivity);
             }
         });
@@ -52,6 +53,7 @@ public class BuyerLanding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goToLoginActivity = new Intent(v.getContext(), BuyVegetablesActivity.class);
+                goToLoginActivity.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToLoginActivity);
             }
         });
@@ -60,6 +62,7 @@ public class BuyerLanding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goToLoginActivity = new Intent(v.getContext(), BuyNutsActivities.class);
+                goToLoginActivity.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToLoginActivity);
             }
         });
@@ -68,6 +71,7 @@ public class BuyerLanding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goToLoginActivity = new Intent(v.getContext(), BuyFruitsActivity.class);
+                goToLoginActivity.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToLoginActivity);
             }
         });
@@ -79,6 +83,7 @@ public class BuyerLanding extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), ContactUsActivity.class);
+                goToLoginActivity.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToLoginActivity);
 
             }
@@ -89,6 +94,7 @@ public class BuyerLanding extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent goToFarmer = new Intent(v.getContext(), LandingActivity.class);
+                goToFarmer.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToFarmer);
             }
         });

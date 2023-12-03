@@ -45,6 +45,19 @@ public class BuyNutsActivities extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_nuts_activities);
 
+        Intent intent = getIntent();
+
+        String currUser = "";
+
+        if (intent != null){
+
+            currUser =  intent.getStringExtra("currUser");
+        }
+
+        TextView textView = findViewById(R.id.textView);
+
+        textView.setText("User: "+currUser);
+
         TextView titleNumItems = findViewById(R.id.titleItems);
 
         TextView cartAmount = findViewById(R.id.cartAmount);
@@ -109,11 +122,13 @@ public class BuyNutsActivities extends AppCompatActivity {
         Button addToCart = findViewById(R.id.addCart);
 
 
+        String finalCurrUser1 = currUser;
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), BuyerLanding.class);
+                goToLoginActivity.putExtra("currUser", finalCurrUser1);
                 v.getContext().startActivity(goToLoginActivity);
 
             }
@@ -145,7 +160,7 @@ public class BuyNutsActivities extends AppCompatActivity {
                 subtotalPopup.setText("$"+finalSubTot+ " Subtotal");
                 cropImage.setImageResource(resource);
 
-                imgResource = String.valueOf(R.drawable.apples);
+                imgResource = String.valueOf(resource);
                 amountItems.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -194,7 +209,7 @@ public class BuyNutsActivities extends AppCompatActivity {
                 subtotalPopup.setText("$"+finalSubTot+ " Subtotal");
                 cropImage.setImageResource(resource);
 
-                imgResource = String.valueOf(R.drawable.grapes);
+                imgResource = String.valueOf(resource);
                 amountItems.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -239,7 +254,7 @@ public class BuyNutsActivities extends AppCompatActivity {
                 subtotalPopup.setText("$"+ finalSubTot + " Subtotal");
                 cropImage.setImageResource(resource);
 
-                imgResource = String.valueOf(R.drawable.mangoes);
+                imgResource = String.valueOf(resource);
                 amountItems.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -287,7 +302,7 @@ public class BuyNutsActivities extends AppCompatActivity {
                 subtotalPopup.setText("$"+finalSubTot+ " Subtotal");
                 cropImage.setImageResource(resource);
 
-                imgResource = String.valueOf(R.drawable.water_melon);
+                imgResource = String.valueOf(resource);
                 amountItems.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -387,6 +402,7 @@ public class BuyNutsActivities extends AppCompatActivity {
         dbHandler = new DBHandler(BuyNutsActivities.this);
         // below line is to add on click listener for our add course button.
 
+        String finalCurrUser = currUser;
         cartBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -394,6 +410,7 @@ public class BuyNutsActivities extends AppCompatActivity {
                 String cropType = "nuts";
                 Intent goToLoginActivity = new Intent(v.getContext(), ViewCrops.class);
                 goToLoginActivity.putExtra("crop_type", cropType);
+                goToLoginActivity.putExtra("currUser", finalCurrUser);
                 v.getContext().startActivity(goToLoginActivity);
             }
         });

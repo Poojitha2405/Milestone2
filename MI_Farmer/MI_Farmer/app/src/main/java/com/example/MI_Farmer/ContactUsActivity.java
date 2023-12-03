@@ -19,12 +19,23 @@ public class ContactUsActivity extends AppCompatActivity {
 
         Button contactUsBTN = findViewById(R.id.btn_send_contact_us);
 
+        Intent intent = getIntent();
+
+        String currUser = "";
+
+        if (intent != null){
+
+            currUser =  intent.getStringExtra("currUser");
+        }
+
         ImageButton backButton = (ImageButton) findViewById(R.id.backB);
+        String finalCurrUser = currUser;
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), BuyerLanding.class);
+                goToLoginActivity.putExtra("currUser", finalCurrUser);
                 v.getContext().startActivity(goToLoginActivity);
 
             }
@@ -35,6 +46,7 @@ public class ContactUsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), BuyerLanding.class);
+                goToLoginActivity.putExtra("currUser", finalCurrUser);
                 v.getContext().startActivity(goToLoginActivity);
 
             }

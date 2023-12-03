@@ -66,6 +66,19 @@ public class BuyCerealsActivity extends AppCompatActivity {
 
         ImageView cropImage = findViewById(R.id.cropImage);
 
+        Intent intent = getIntent();
+
+        String currUser = "";
+
+        if (intent != null){
+
+            currUser =  intent.getStringExtra("currUser");
+        }
+
+        TextView textView = findViewById(R.id.textView);
+
+        textView.setText("User: "+currUser);
+
 
         TextView applesName = findViewById(R.id.apples_name);
         TextView applesPriceAmount = findViewById(R.id.priceAmountApples);
@@ -108,11 +121,13 @@ public class BuyCerealsActivity extends AppCompatActivity {
         Button addToCart = findViewById(R.id.addCart);
 
 
+        String finalCurrUser1 = currUser;
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), BuyerLanding.class);
+                goToLoginActivity.putExtra("currUser", finalCurrUser1);
                 v.getContext().startActivity(goToLoginActivity);
 
             }
@@ -144,7 +159,7 @@ public class BuyCerealsActivity extends AppCompatActivity {
                 subtotalPopup.setText("$"+finalSubTot+ " Subtotal");
                 cropImage.setImageResource(resource);
 
-                imgResource = String.valueOf(R.drawable.apples);
+                imgResource = String.valueOf(resource);
                 amountItems.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -193,7 +208,7 @@ public class BuyCerealsActivity extends AppCompatActivity {
                 subtotalPopup.setText("$"+finalSubTot+ " Subtotal");
                 cropImage.setImageResource(resource);
 
-                imgResource = String.valueOf(R.drawable.grapes);
+                imgResource = String.valueOf(resource);
                 amountItems.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -238,7 +253,7 @@ public class BuyCerealsActivity extends AppCompatActivity {
                 subtotalPopup.setText("$"+ finalSubTot + " Subtotal");
                 cropImage.setImageResource(resource);
 
-                imgResource = String.valueOf(R.drawable.mangoes);
+                imgResource = String.valueOf(resource);
                 amountItems.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -286,7 +301,7 @@ public class BuyCerealsActivity extends AppCompatActivity {
                 subtotalPopup.setText("$"+finalSubTot+ " Subtotal");
                 cropImage.setImageResource(resource);
 
-                imgResource = String.valueOf(R.drawable.water_melon);
+                imgResource = String.valueOf(resource);
                 amountItems.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -386,6 +401,7 @@ public class BuyCerealsActivity extends AppCompatActivity {
         dbHandler = new DBHandler(BuyCerealsActivity.this);
         // below line is to add on click listener for our add course button.
 
+        String finalCurrUser = currUser;
         cartBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -393,6 +409,7 @@ public class BuyCerealsActivity extends AppCompatActivity {
                 String cropType = "cereals";
                 Intent goToLoginActivity = new Intent(v.getContext(), ViewCrops.class);
                 goToLoginActivity.putExtra("crop_type", cropType);
+                goToLoginActivity.putExtra("currUser", finalCurrUser);
                 v.getContext().startActivity(goToLoginActivity);
             }
         });

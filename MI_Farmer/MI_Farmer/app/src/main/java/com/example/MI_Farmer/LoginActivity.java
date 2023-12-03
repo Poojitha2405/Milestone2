@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.example.mi_farmer.R;
 
@@ -14,11 +15,23 @@ import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
+    public DBHandler dbHandler;
+
+    private ArrayList<CropModal> cropModalArrayList;
+
+
+    Handler handler;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ViewPager viewPager = findViewById(R.id.viewPager);
+
+        dbHandler = new DBHandler(LoginActivity.this);
+        cropModalArrayList = dbHandler.readCrops();
+        dbHandler.deleteAll();
 
         AuthenticationPagerAdapter pagerAdapter = new AuthenticationPagerAdapter(getSupportFragmentManager());
         pagerAdapter.addFragmet(new LoginFragment());

@@ -34,6 +34,7 @@ public class LandingActivity extends AppCompatActivity {
 
 
         String currUser =  intent.getStringExtra("currUser");
+        String currEmail ="";
 
         if (intent != null){
             currUserTV.setText("Welcome back " + currUser);
@@ -47,6 +48,7 @@ public class LandingActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), UploadInfoActivity.class);
+                goToLoginActivity.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToLoginActivity);
             }
         });
@@ -56,6 +58,7 @@ public class LandingActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), AgrovetServices.class);
+                goToLoginActivity.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToLoginActivity);
             }
         });
@@ -67,6 +70,7 @@ public class LandingActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), ContactUsActivity.class);
+                goToLoginActivity.putExtra("currUser", currUser);
                 v.getContext().startActivity(goToLoginActivity);
 
             }

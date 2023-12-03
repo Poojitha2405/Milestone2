@@ -1,5 +1,4 @@
 package com.example.MI_Farmer;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -21,7 +20,7 @@ import com.example.mi_farmer.R;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class BuyVegetablesActivity extends AppCompatActivity {
+public class BuyFruitsActivity extends AppCompatActivity {
 
     private ArrayList<CropModal> cropModalArrayList;
     private DBHandler dbHandler;
@@ -38,11 +37,23 @@ public class BuyVegetablesActivity extends AppCompatActivity {
 
     DecimalFormat df = new DecimalFormat("#.##");
     public int amountSet, numberOfItems, resource;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buy_vegetables);
+        setContentView(R.layout.activity_buy_fruits);
+
+        Intent intent = getIntent();
+
+        String currUser = "";
+
+        if (intent != null){
+
+            currUser =  intent.getStringExtra("currUser");
+        }
+
+        TextView textView = findViewById(R.id.textView);
+
+        textView.setText("User: "+currUser);
 
         TextView titleNumItems = findViewById(R.id.titleItems);
 
@@ -86,7 +97,7 @@ public class BuyVegetablesActivity extends AppCompatActivity {
 
 
         cropModalArrayList = new ArrayList<>();
-        dbHandler = new DBHandler(BuyVegetablesActivity.this);
+        dbHandler = new DBHandler(BuyFruitsActivity.this);
 
         // getting our meals array
         // list from db handler class.
@@ -108,11 +119,13 @@ public class BuyVegetablesActivity extends AppCompatActivity {
         Button addToCart = findViewById(R.id.addCart);
 
 
+        String finalCurrUser1 = currUser;
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent goToLoginActivity = new Intent(v.getContext(), BuyerLanding.class);
+                goToLoginActivity.putExtra("currUser", finalCurrUser1);
                 v.getContext().startActivity(goToLoginActivity);
 
             }
@@ -136,7 +149,7 @@ public class BuyVegetablesActivity extends AppCompatActivity {
 
 
                 cartPopup.setVisibility(View.VISIBLE);
-                resource = R.drawable.cabbages;
+                resource = R.drawable.apples;
                 subTotal = amountSet * cropPrice;
                 finalSubTot = String.valueOf(subTotal);
                 cropNamePopup.setText(applesName.getText().toString());
@@ -185,7 +198,7 @@ public class BuyVegetablesActivity extends AppCompatActivity {
                 cropPrice = Double.parseDouble(grapesPriceAmount.getText().toString());
 
                 cartPopup.setVisibility(View.VISIBLE);
-                resource = R.drawable.carrots;
+                resource = R.drawable.grapes;
                 subTotal = amountSet * cropPrice;
                 finalSubTot = String.valueOf(subTotal);
                 cropNamePopup.setText(grapesName.getText().toString());
@@ -230,7 +243,7 @@ public class BuyVegetablesActivity extends AppCompatActivity {
                 cropPrice = Double.parseDouble(mangoesPriceAmount.getText().toString());
 
                 cartPopup.setVisibility(View.VISIBLE);
-                resource = R.drawable.tomatoes;
+                resource = R.drawable.mangoes;
                 subTotal = amountSet * cropPrice;
                 finalSubTot = String.valueOf(subTotal);
                 cropNamePopup.setText(mangoesName.getText().toString());
@@ -278,7 +291,7 @@ public class BuyVegetablesActivity extends AppCompatActivity {
                 cropPrice = Double.parseDouble(waterMelonPriceAmount.getText().toString());
 
                 cartPopup.setVisibility(View.VISIBLE);
-                resource = R.drawable.kale;
+                resource = R.drawable.water_melon;
                 subTotal = amountSet * cropPrice;
                 finalSubTot = String.valueOf(subTotal);
                 cropNamePopup.setText(waterMelonName.getText().toString());
@@ -332,7 +345,6 @@ public class BuyVegetablesActivity extends AppCompatActivity {
 
 
                         // on below line we are calling a method to add new
-                        // meal to sqlite data and pass all our values to it.
                         dbHandler.addNewCourse(cropNamePopup.getText().toString(), pricePopup.getText().toString(), finalSubTot, amountItems.getText().toString(), imgResource);
 
                         cropModalArrayList = dbHandler.readCrops();
@@ -346,7 +358,7 @@ public class BuyVegetablesActivity extends AppCompatActivity {
                         String totalString = df.format(total);
                         titleNumItems.setText("Total: $"+ totalString);
                         // after adding the data we are displaying a toast message.
-                        Toast.makeText(BuyVegetablesActivity.this, "1 item has been added to the cart.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(BuyFruitsActivity.this, "1 item has been added to the cart.", Toast.LENGTH_LONG).show();
 
                         amountItems.setText("1");
                         cartPopup.setVisibility(View.INVISIBLE);
@@ -355,11 +367,11 @@ public class BuyVegetablesActivity extends AppCompatActivity {
 
                     }else {
 
-                        Toast.makeText(BuyVegetablesActivity.this, "Amount cannot be 0.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BuyFruitsActivity.this, "Amount cannot be 0.", Toast.LENGTH_SHORT).show();
                     }
                 }else{
 
-                    Toast.makeText(BuyVegetablesActivity.this, "Amount cannot be empty.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BuyFruitsActivity.this, "Amount cannot be empty.", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -383,18 +395,22 @@ public class BuyVegetablesActivity extends AppCompatActivity {
 
         // creating a new dbhandler class
         // and passing our context to it.
-        dbHandler = new DBHandler(BuyVegetablesActivity.this);
+        dbHandler = new DBHandler(BuyFruitsActivity.this);
         // below line is to add on click listener for our add course button.
 
+        String finalCurrUser = currUser;
         cartBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // opening a new activity via a intent.
-                String cropType = "vegetables";
+                String cropType = "fruits";
                 Intent goToLoginActivity = new Intent(v.getContext(), ViewCrops.class);
                 goToLoginActivity.putExtra("crop_type", cropType);
+                goToLoginActivity.putExtra("currUser", finalCurrUser);
                 v.getContext().startActivity(goToLoginActivity);
             }
         });
+
+
     }
 }
